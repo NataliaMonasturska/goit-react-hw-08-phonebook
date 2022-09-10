@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './Contact.module.css';
 import { useDispatch, useSelector } from "react-redux";
-import { contactDelete} from '../../../redux/contacts/contacts-operations';
+import { deleteUserContact} from '../../../redux/contacts/contacts-operations';
 import { RotatingLines } from 'react-loader-spinner';
 
 export const Contact = ({contact}) => {
@@ -15,7 +15,7 @@ export const Contact = ({contact}) => {
         <span className={css.contactNumber}>{contact.phone}</span>
         <button
           type="button"
-          onClick={() => dispatch(contactDelete(contact.id))}
+          onClick={() => dispatch(deleteUserContact(contact.id))}
           className={css.btn}
         >
           Delete

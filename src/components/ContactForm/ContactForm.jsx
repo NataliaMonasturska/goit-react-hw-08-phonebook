@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import Notiflix from 'notiflix';
-import { postContact } from '../../redux/contacts/contacts-operations'
+import {CreateContact  } from '../../redux/contacts/contacts-operations'
 import { RotatingLines } from 'react-loader-spinner';
 
 export const ContactForm = () => {
@@ -31,7 +31,7 @@ export const ContactForm = () => {
       Notiflix.Notify.failure(`${name} is already in contacts`);
       return
     }
-    dispatch(postContact(
+    dispatch(CreateContact (
       {
         'name': name,
         'phone': number,
