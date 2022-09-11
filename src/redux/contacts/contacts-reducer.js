@@ -44,13 +44,13 @@ const status = createReducer(true, {
 
 // 8дз
 
-    [registerUsers.pending]: () => 'addUser',
-    [registerUsers.fulfilled]: () => false,
-    [registerUsers.rejected]: () => false,
+    // [registerUsers.pending]: () => 'addUser',
+    // [registerUsers.fulfilled]: () => false,
+    // [registerUsers.rejected]: () => false,
 
-    [loginUser.pending]: () => 'loginUser',
-    [loginUser.fulfilled]: () => false,
-    [loginUser.rejected]: () => false,
+    // [loginUser.pending]: () => 'loginUser',
+    // [loginUser.fulfilled]: () => false,
+    // [loginUser.rejected]: () => false,
 
 
 })
@@ -75,11 +75,11 @@ const error = createReducer(null, {
     [CreateContact.pending]: () => null,
 
 //  8дз
-    [registerUsers.rejected]:  (_, { payload }) => payload,
-    [registerUsers.fulfilled]: () => null,
+    // [registerUsers.rejected]:  (_, { payload }) => payload,
+    // [registerUsers.fulfilled]: () => null,
 
-    [loginUser.rejected]: (_, { payload }) => payload,
-    [loginUser.fulfilled]: () => null,
+    // [loginUser.rejected]: (_, { payload }) => payload,
+    // [loginUser.fulfilled]: () => null,
 
 })
 

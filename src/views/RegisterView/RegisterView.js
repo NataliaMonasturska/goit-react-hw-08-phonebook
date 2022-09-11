@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import css from './RegisterView.module.css';
 import { useDispatch, useSelector } from "react-redux";
-import Notiflix from 'notiflix';
-import { registerUsers } from '../../redux/contacts/contacts-operations'
+// import Notiflix from 'notiflix';
+import { registerUsers } from '../../redux/auth/auth-operations'
 import { RotatingLines } from 'react-loader-spinner';
 
 export const RegisterView = () => {
@@ -10,7 +10,6 @@ export const RegisterView = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
-    const items = useSelector(state => state.contacts.items);
     const status = useSelector(state => state.contacts.status);
     //   const status = useSelector(state => state.contacts.status);
 
@@ -26,26 +25,9 @@ export const RegisterView = () => {
         }
     };
 
-    const handleSubmitInputName = event => {
+    const handleSubmit = event => {
         event.preventDefault();
-        if(name === '' || password === ''){
-            return
-        }
-        const nameNormalized = name.toLowerCase();
-        const dobbleName = items.find(
-            item => item.name.toLowerCase() === nameNormalized
-        );
-        if (dobbleName) {
-            Notiflix.Notify.failure(`${name} is already in contacts`);
-            return
-        }
-        dispatch(registerUsers(
-            {
-                "name": name,
-                "email": email,
-                "password": password,
-            }
-        ));
+        dispatch(registerUsers({name, email, password}));
         setName('')
         setEmail('')
         setPassword('')
@@ -55,7 +37,7 @@ export const RegisterView = () => {
     return (
         <div className={css.container }>
             <p className={css.title}>REGISTER</p>
-            <form className={css.form} onSubmit={handleSubmitInputName}>
+            <form className={css.form} onSubmit={handleSubmit}>
                 <label className={css.label}>
                     <span className={css.inputName}>Name</span>
                     <input

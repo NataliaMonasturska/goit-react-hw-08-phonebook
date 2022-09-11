@@ -1,5 +1,6 @@
 import css from './Header.module.css';
 import { NavLink } from 'react-router-dom';
+import {UserMenu} from '../UserMenu/UserMenu'
 
 
 
@@ -20,6 +21,7 @@ export const Header = () => {
             <NavLink className={css.link} to="/login">
                 <p>LOGIN</p>
             </NavLink>
+            <UserMenu />
         </div>
     );
 }

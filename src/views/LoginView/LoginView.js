@@ -50,7 +50,7 @@ export const LoginView = () => {
                     />
                 </label>
                 <label className={css.label}>
-                    <span className={css.inputName}>Email</span>
+                    <span className={css.inputName}>Password</span>
                     <input
                         className={css.input}
                         onChange={handleChangeInput}
