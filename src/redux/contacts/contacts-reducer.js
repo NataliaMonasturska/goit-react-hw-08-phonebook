@@ -14,7 +14,7 @@ import { getAllContactsUser, CreateContact, deleteUserContact} from './contacts-
         {
             [getAllContactsUser.fulfilled]: (_, { payload }) => payload,
             [CreateContact.fulfilled]: (state, { payload }) => [...state, payload],
-            [deleteUserContact.fulfilled]: (state, { payload }) => state.filter(({ id }) => id !== payload)
+            [deleteUserContact.fulfilled]: (state, action) => state.filter(({ id }) => id !== action.meta.arg,)
         });
 
 

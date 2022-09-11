@@ -27,30 +27,30 @@ import { getUsers, userLogin, userLogout, getAllUserContacts, CreateNewContact, 
 
 // регистрация пользователя 
 
-export const registerUsers = createAsyncThunk('user/register',
-    async (userData) => {
-        const user = await getUsers(userData);
-        return user;
-    }
-)
+// export const registerUsers = createAsyncThunk('user/register',
+//     async (userData) => {
+//         const user = await getUsers(userData);
+//         return user;
+//     }
+// )
 
-// Залогинить пользователя
+// // Залогинить пользователя
 
-export const loginUser = createAsyncThunk('user/login',
-    async (values) => {
-        const user = await userLogin(values);
-        return user;
-    }
-)
+// export const loginUser = createAsyncThunk('user/login',
+//     async (values) => {
+//         const user = await userLogin(values);
+//         return user;
+//     }
+// )
 
-// Разлогинить пользователя
+// // Разлогинить пользователя
 
-export const logoutUser = createAsyncThunk('user/Logout',
-    async (values) => {
-        const user = await userLogout(values);
-        return user;
-    }
-)
+// export const logoutUser = createAsyncThunk('user/Logout',
+//     async (values) => {
+//         const user = await userLogout(values);
+//         return user;
+//     }
+// )
 
 // // получить все контакты пользователя
 

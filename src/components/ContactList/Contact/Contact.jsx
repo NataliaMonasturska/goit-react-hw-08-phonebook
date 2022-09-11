@@ -12,7 +12,7 @@ export const Contact = ({contact}) => {
     <li className={css.item}>
       <span className={css.contactName}>{contact.name}: </span>
       <div className={css.container}>
-        <span className={css.contactNumber}>{contact.phone}</span>
+        <span className={css.contactNumber}>{contact.number}</span>
         <button
           type="button"
           onClick={() => dispatch(deleteUserContact(contact.id))}
@@ -38,6 +38,6 @@ Contact.propTypes = {
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
   }),
 };

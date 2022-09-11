@@ -23,8 +23,8 @@ const error = createReducer(null, {
 
 const user = createReducer({ name: null, email: null }, {
     [registerUsers.fulfilled]: (_, { payload }) => payload.user,
-    [loginUser.fulfilled]: (_, { payload }) => payload,
-    [logoutUser.fulfilled]: (_, { payload }) => ({ name: null, email: null })
+    [loginUser.fulfilled]: (_, { payload }) => payload.user,
+    [logoutUser.fulfilled]: () => ({ name: null, email: null })
 })
 
 const isLoggedIn = createReducer(false, {

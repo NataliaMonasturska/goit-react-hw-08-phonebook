@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import css from './LoginView.module.css';
 import { useDispatch, useSelector } from "react-redux";
 // import Notiflix from 'notiflix';
-import { loginUser } from '../../redux/contacts/contacts-operations'
+import { loginUser } from '../../redux/auth/auth-operations'
 import { RotatingLines } from 'react-loader-spinner';
 
 export const LoginView = () => {
@@ -20,14 +20,9 @@ export const LoginView = () => {
         }
     };
 
-    const handleSubmitInputName = event => {
+    const handleSubmit = event => {
         event.preventDefault();
-        dispatch(loginUser(
-            {
-                "email": email,
-                "password": password,
-            }
-        ));
+        dispatch(loginUser({email, password,}));
         setEmail('')
         setPassword('')
     };
@@ -35,8 +30,8 @@ export const LoginView = () => {
 
     return (
         <div className={css.container}>
-             <p className={css.title}>LOGIN</p>
-            <form className={css.form} onSubmit={handleSubmitInputName}>
+            <p className={css.title}>LOGIN</p>
+            <form className={css.form} onSubmit={handleSubmit}>
 
                 <label className={css.label}>
                     <span className={css.inputName}>Email</span>

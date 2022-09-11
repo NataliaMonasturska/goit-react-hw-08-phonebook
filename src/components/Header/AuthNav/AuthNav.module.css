@@ -1,0 +1,9 @@
+.containerAuthNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link:not(:last-child) {
+  margin-right: 20px;
+}

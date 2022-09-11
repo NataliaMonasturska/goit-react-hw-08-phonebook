@@ -1,26 +1,26 @@
 const axios = require('axios').default;
 
-const CONTACTS_URL = 'https://63150aa45b85ba9b11dba549.mockapi.io/contacts/';
+// const CONTACTS_URL = 'https://63150aa45b85ba9b11dba549.mockapi.io/contacts/';
 const API_BASE_URL = 'https://connections-api.herokuapp.com'
 
 
-export const getContacts = async () => {
-  const response = await axios.get(`${CONTACTS_URL}`);
-  const contacts = await response.data;
-  return contacts;
-};
+// export const getContacts = async () => {
+//   const response = await axios.get(`${CONTACTS_URL}`);
+//   const contacts = await response.data;
+//   return contacts;
+// };
 
-export const addContact = async (newContact) => {
-  const response = await axios.post(CONTACTS_URL, newContact);
-  const contact = await response.data;
-  return contact;
-};
+// export const addContact = async (newContact) => {
+//   const response = await axios.post(CONTACTS_URL, newContact);
+//   const contact = await response.data;
+//   return contact;
+// };
 
-export const deleteContact = async (contactId) => {
-  const response = await axios.delete(`${CONTACTS_URL}${contactId}`);
-  const id = await response.data.id;
-  return id;
-};
+// export const deleteContact = async (contactId) => {
+//   const response = await axios.delete(`${CONTACTS_URL}${contactId}`);
+//   const id = await response.data.id;
+//   return id;
+// };
 
 
 
@@ -42,15 +42,15 @@ export const userLogin = async (values) => {
 }
 // Разлогинить пользователя
 
-export const userLogout = async (values) => {
-  const response = await axios.post(`${API_BASE_URL}/users/logout`, values);
+export const userLogout = async () => {
+  const response = await axios.post(`${API_BASE_URL}/users/logout`);
   const logout = await response.data;
   return logout;
 }
 
 // получить информацию о текущем пользователе
 export const getUserData = async () => {
-  const response = await axios.get(`${CONTACTS_URL}/users/current`);
+  const response = await axios.get(`${API_BASE_URL}/users/current`);
   const userData = await response.data;
   return userData;
 }
@@ -58,7 +58,7 @@ export const getUserData = async () => {
 // получить все контакты пользователя
 
 export const getAllUserContacts = async () => {
-  const response = await axios.get(`${CONTACTS_URL}/contacts`);
+  const response = await axios.get(`${API_BASE_URL}/contacts`);
   const contacts = await response.data;
   return contacts
 }
@@ -66,7 +66,7 @@ export const getAllUserContacts = async () => {
 // Создать новый контакт
 
 export const CreateNewContact = async (value) => {
-  const response = await axios.post(`${CONTACTS_URL}/contacts`, value);
+  const response = await axios.post(`${API_BASE_URL}/contacts`, value);
   const newContact = await response.data;
   return newContact;
 }
@@ -74,7 +74,7 @@ export const CreateNewContact = async (value) => {
 // Удалить контакт
 
 export const contactDelete = async (contactId) => {
-  const response = await axios.delete(`${CONTACTS_URL}/contacts/${contactId}`);
+  const response = await axios.delete(`${API_BASE_URL}/contacts/${contactId}`);
   const id = await response.data
   return id;
 }
@@ -82,7 +82,7 @@ export const contactDelete = async (contactId) => {
 // Обновить существующий контакт
 
 export const UpdateExistingContact = async (contactId) => {
-  const response = await axios.patch(`${CONTACTS_URL}/contacts/${contactId}`);
+  const response = await axios.patch(`${API_BASE_URL}/contacts/${contactId}`);
   const contact = await response.data;
   return contact;
 }

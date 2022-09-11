@@ -1,27 +1,19 @@
 import css from './Header.module.css';
 import { NavLink } from 'react-router-dom';
-import {UserMenu} from '../UserMenu/UserMenu'
+import { UserMenu } from './UserMenu/UserMenu';
+import { Navigation } from './Navigation/Navigation';
+import { AuthNav } from './AuthNav/AuthNav';
+import { useSelector } from "react-redux";
 
 
 
 export const Header = () => {
 
-    // const status = useSelector(state => state.contacts.status);
+    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
     return (
         <div className={css.header}>
-            <NavLink className={css.link}  to="/">
-                <p>HOME</p>
-            </NavLink>
-            <NavLink className={css.link} to="/contacts">
-                <p>PHONEBOOK</p>
-            </NavLink>
-            <NavLink className={css.link} to="/register">
-                <p>REGISTER</p>
-            </NavLink>
-            <NavLink className={css.link} to="/login">
-                <p>LOGIN</p>
-            </NavLink>
-            <UserMenu />
+            <Navigation />
+            {isLoggedIn ? <UserMenu /> : <AuthNav />}
         </div>
     );
 }
