@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import {ContactsView} from '../views/ContactsView/ContactsView';
 import {RegisterView } from '../views/RegisterView/RegisterView';
 import {HomeView} from '../views/HomeView/HomeView';
 import {LoginView} from '../views/LoginView/LoginView';
 import {SharedLayout} from './SharedLayout/SharedLayout';
-import { useSelector, useDispatch } from "react-redux";
-import { getAllContactsUser, getUsersData } from '../redux/contacts/contacts-operations'
-import { RotatingLines } from 'react-loader-spinner';
-import { Header } from './Header/Header';
+// import { useSelector, useDispatch } from "react-redux";
+// import { getAllContactsUser, getUsersData } from '../redux/contacts/contacts-operations'
+// import { RotatingLines } from 'react-loader-spinner';
+// import { Header } from './Header/Header';
 import { Routes, Route, Navigate } from "react-router-dom";
 import css from './App.module.css';
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const status = useSelector(state => state.contacts.status);
+  // const dispatch = useDispatch();
+  // const status = useSelector(state => state.contacts.status);
 
 //   useEffect(() => {
 //     dispatch(getUsersData())

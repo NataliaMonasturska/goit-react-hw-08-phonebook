@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './UserMenu.module.css';
-import { useDispatch, useSelector } from "react-redux";
-import { changeFilter } from '../../redux/contacts/contacts-actions';
+// import { useDispatch, useSelector } from "react-redux";
+
 
 
 export const UserMenu = () => {

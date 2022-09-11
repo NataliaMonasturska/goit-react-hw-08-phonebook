@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import { changeFilter } from './contacts-actions';
-import { registerUsers, loginUser,getAllContactsUser, CreateContact, deleteUserContact} from './contacts-operations'
+import { getAllContactsUser, CreateContact, deleteUserContact} from './contacts-operations'
 
 // const items = createReducer([],
 //     {
@@ -90,16 +90,15 @@ const filter = createReducer('', {
 // 8дз
 // регистрация нового пользователя 
 
-const user = createReducer({}, {
-    [registerUsers.fulfilled]: (_, { payload }) => payload,
-    [loginUser.fulfilled]: (_, { payload }) => payload,
-}
-)
+// const user = createReducer({}, {
+//     [registerUsers.fulfilled]: (_, { payload }) => payload,
+//     [loginUser.fulfilled]: (_, { payload }) => payload,
+// }
+// )
 export const contactsReducer = combineReducers({
     items,
     status,
     error,
     filter,
-    user,
 })
 
