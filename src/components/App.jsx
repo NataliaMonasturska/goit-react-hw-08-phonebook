@@ -1,7 +1,4 @@
 import React, { useEffect } from 'react';
-import { ContactForm } from 'components/ContactForm/ContactForm';
-import { Filter } from 'components/Filter/Filter';
-import { ContactList } from 'components/ContactList/ContactList';
 import {ContactsView} from '../views/ContactsView/ContactsView';
 import {RegisterView } from '../views/RegisterView/RegisterView';
 import {HomeView} from '../views/HomeView/HomeView';
