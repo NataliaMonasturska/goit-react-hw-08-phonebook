@@ -1,8 +1,7 @@
-import React from 'react';
 import { Contact } from 'components/ContactList/Contact/Contact';
-import { useSelector } from "react-redux";
 import css from './contactList.module.css';
-
+import { useSelector } from "react-redux";
+import React from 'react';
 
 export const ContactList = () => {
   const items = useSelector(state => state.contacts.items);

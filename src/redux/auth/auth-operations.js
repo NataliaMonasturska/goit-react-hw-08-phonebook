@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getUsers, userLogin, userLogout } from '../../services/Api'
+import { getUsers, userLogin, userLogout, getUserData } from '../../services/Api'
 import Notiflix from 'notiflix';
 import axios from 'axios';
 
@@ -71,13 +71,24 @@ export const logoutUser = createAsyncThunk('user/Logout',
 
 // получить информацию о текущем пользователе
 
-// export const getUserData = createAsyncThunk('user/refresh',
-// async (_, thunkAPI) => {
-//     const state = thunkAPI.getState();
-//     // const token = 
-// //   console.log(thunkAPI.getState());
-// }
-// )
+export const getUserDataForRefresh = createAsyncThunk('user/refresh',
+    async (_, thunkAPI) => {
+        const state = thunkAPI.getState();
+        const persistedToken = state.auth.token
+        if (persistedToken === null) {
+            return thunkAPI.rejectWithValue();
+        }
+        token.set(persistedToken);
+        try {
+            const data = await getUserData();
+            return data;
+        } catch (error) {
+            Notiflix.Notify.failure(
+                'Authorization error.Please register or login again.'
+            );
+        }
+    }
+)
 
 
 

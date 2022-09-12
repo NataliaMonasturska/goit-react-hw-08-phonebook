@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './Contact.module.css';
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUserContact} from '../../../redux/contacts/contacts-operations';
+import { deleteUserContact } from '../../../redux/contacts/contacts-operations';
 import { RotatingLines } from 'react-loader-spinner';
 
-export const Contact = ({contact}) => {
+export const Contact = ({ contact }) => {
   const dispatch = useDispatch();
   const status = useSelector(state => state.contacts.status);
   return (
@@ -20,14 +20,14 @@ export const Contact = ({contact}) => {
         >
           Delete
           {status === contact.id && (<div className={css.Loader}>
-        <RotatingLines
-          strokeColor="white"
-          strokeWidth="5"
-          animationDuration="0.75"
-          width="20"
-          visible={true}
-        />
-      </div>)}
+            <RotatingLines
+              strokeColor="white"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="20"
+              visible={true}
+            />
+          </div>)}
         </button>
       </div>
     </li>

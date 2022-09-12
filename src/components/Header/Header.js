@@ -1,5 +1,4 @@
 import css from './Header.module.css';
-import { NavLink } from 'react-router-dom';
 import { UserMenu } from './UserMenu/UserMenu';
 import { Navigation } from './Navigation/Navigation';
 import { AuthNav } from './AuthNav/AuthNav';

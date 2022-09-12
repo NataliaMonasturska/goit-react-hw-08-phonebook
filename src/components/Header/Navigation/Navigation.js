@@ -1,21 +1,21 @@
 import css from './Navigation.module.css';
 import { NavLink } from 'react-router-dom';
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 
 export const Navigation = () => {
 
-    // const status = useSelector(state => state.auth.isLoggedIn );
+    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
     return (
         <div className={css.containerNavigate}>
-            <NavLink className={css.link} to="/">
+            <NavLink className={css.link} to="/" >
                 <p>HOME</p>
             </NavLink>
-
-            <NavLink className={css.link} to="/contacts">
+            {isLoggedIn && (<NavLink className={css.link} to="/contacts">
                 <p>PHONEBOOK</p>
-            </NavLink>
+            </NavLink>)}
+
         </div>
     );
 }

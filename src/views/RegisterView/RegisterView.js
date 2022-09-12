@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import css from './RegisterView.module.css';
 import { useDispatch, useSelector } from "react-redux";
-// import Notiflix from 'notiflix';
 import { registerUsers } from '../../redux/auth/auth-operations'
 import { RotatingLines } from 'react-loader-spinner';
 
-export const RegisterView = () => {
+const RegisterView = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const status = useSelector(state => state.contacts.status);
-    //   const status = useSelector(state => state.contacts.status);
 
     const handleChangeInput = event => {
         if (event.target.name === 'name') {
@@ -27,7 +25,7 @@ export const RegisterView = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch(registerUsers({name, email, password}));
+        dispatch(registerUsers({ name, email, password }));
         setName('')
         setEmail('')
         setPassword('')
@@ -35,7 +33,7 @@ export const RegisterView = () => {
 
 
     return (
-        <div className={css.container }>
+        <div className={css.container}>
             <p className={css.title}>REGISTER</p>
             <form className={css.form} onSubmit={handleSubmit}>
                 <label className={css.label}>
@@ -92,3 +90,4 @@ export const RegisterView = () => {
         </div>
     );
 }
+export default RegisterView
