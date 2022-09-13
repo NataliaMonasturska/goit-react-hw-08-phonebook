@@ -16,7 +16,7 @@ const ContactsView = () => {
 
     useEffect(() => {
         dispatch(getAllContactsUser())
-    }, [dispatch])
+    }, [dispatch, userStatus])
 
     return (
         <div className={css.phonebookContainer}>

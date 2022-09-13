@@ -8,7 +8,7 @@ const LoginView = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
-    const status = useSelector(state => state.contacts.status);
+    const status = useSelector(state => state.auth.status);
 
     const handleChangeInput = event => {
         if (event.target.name === 'email') {
@@ -22,8 +22,11 @@ const LoginView = () => {
     const handleSubmit = event => {
         event.preventDefault();
         dispatch(loginUser({ email, password, }));
-        setEmail('')
-        setPassword('')
+        if (status === 'fulfilledLoginUser') {
+            setEmail('')
+            setPassword('')
+        }
+
     };
 
 

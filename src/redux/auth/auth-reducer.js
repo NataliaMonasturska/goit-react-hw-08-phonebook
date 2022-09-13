@@ -5,11 +5,11 @@ import { registerUsers, loginUser, logoutUser, getUserDataForRefresh } from './a
 
 const status = createReducer(false, {
     [registerUsers.pending]: () => 'addUser',
-    [registerUsers.fulfilled]: () => false,
+    [registerUsers.fulfilled]: () => 'fulfilledAddUser',
     [registerUsers.rejected]: () => false,
 
     [loginUser.pending]: () => 'loginUser',
-    [loginUser.fulfilled]: () => false,
+    [loginUser.fulfilled]: () => 'fulfilledLoginUser',
     [loginUser.rejected]: () => false,
 
     [logoutUser.pending]: () => 'logoutUser',
@@ -36,7 +36,7 @@ const error = createReducer(null, {
 })
 
 const user = createReducer({ name: null, email: null }, {
-    [registerUsers.fulfilled]: (_, { payload }) => payload.user,
+    [registerUsers.fulfilled]: (_, action) => action.meta.arg,
     [loginUser.fulfilled]: (_, { payload }) => payload.user,
     [logoutUser.fulfilled]: () => ({ name: null, email: null }),
     [getUserDataForRefresh.fulfilled]: (_, { payload }) => payload,
@@ -60,7 +60,6 @@ const isFetchingCurrentUser = createReducer(false, {
     [getUserDataForRefresh.pending]: () => true,
     [getUserDataForRefresh.fulfilled]: () => false,
     [getUserDataForRefresh.rejected]: () => false,
-
 })
 
 

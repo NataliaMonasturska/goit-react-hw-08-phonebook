@@ -12,7 +12,6 @@
   border: none;
   display: flex;
   align-items: center;
-  justify-content: center;
   justify-content: space-between;
 }
 .btn:active {
@@ -25,4 +24,9 @@
 }
 .mail {
   margin-right: 20px;
+}
+.Loader {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
 }

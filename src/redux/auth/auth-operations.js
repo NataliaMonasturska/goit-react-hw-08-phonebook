@@ -14,7 +14,7 @@ const token = {
 // зарегестрировать пользователя
 
 export const registerUsers = createAsyncThunk('user/register',
-    async (userData) => {
+    async (userData,  { rejectWithValue } ) => {
         try {
             const user = await getUsers(userData);
             token.set(user.token)
@@ -24,6 +24,7 @@ export const registerUsers = createAsyncThunk('user/register',
             Notiflix.Notify.failure(
                 'Registration error. Please try again.'
             );
+            return rejectWithValue(error.response.data)
         }
     }
 
@@ -34,7 +35,7 @@ export const registerUsers = createAsyncThunk('user/register',
 
 export const loginUser = createAsyncThunk('user/login',
 
-    async (values) => {
+    async (values,  { rejectWithValue }) => {
         try {
             const user = await userLogin(values);
             token.set(user.token);
@@ -44,6 +45,7 @@ export const loginUser = createAsyncThunk('user/login',
             Notiflix.Notify.failure(
                 'Login error. Please try again.'
             );
+            return rejectWithValue(error.response.data)
         }
     }
 
@@ -82,10 +84,9 @@ export const getUserDataForRefresh = createAsyncThunk('user/refresh',
         try {
             const data = await getUserData();
             return data;
-        } catch (error) {
-            Notiflix.Notify.failure(
-                'Authorization error.Please register or login again.'
-            );
+        } 
+        catch (error) {
+           console.log(error);
         }
     }
 )

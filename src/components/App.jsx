@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserDataForRefresh } from '../redux/auth/auth-operations'
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import css from './App.module.css';
 
 const HomeView = lazy(() => import('../views/HomeView/HomeView'));
@@ -42,6 +42,7 @@ export const App = () => {
               <ContactsView />
             </PrivateRoute>} />
         </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>)
 

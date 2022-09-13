@@ -9,7 +9,8 @@ const RegisterView = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
-    const status = useSelector(state => state.contacts.status);
+    const status = useSelector(state => state.auth.status);
+
 
     const handleChangeInput = event => {
         if (event.target.name === 'name') {
@@ -23,13 +24,17 @@ const RegisterView = () => {
         }
     };
 
-    const handleSubmit = event => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        dispatch(registerUsers({ name, email, password }));
-        setName('')
-        setEmail('')
-        setPassword('')
+        await dispatch(registerUsers({ name, email, password }));
+        if (status === 'fulfilledAddUser') {
+            setName('')
+            setEmail('')
+            setPassword('')
+        }
     };
+
+
 
 
     return (
