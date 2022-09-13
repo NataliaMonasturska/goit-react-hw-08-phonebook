@@ -62,9 +62,7 @@ export const logoutUser = createAsyncThunk('user/Logout',
             return user;
         }
         catch (error) {
-            Notiflix.Notify.failure(
-                'Logout error. Please try again.'
-            );
+        console.log(error);
         }
     }
 )
