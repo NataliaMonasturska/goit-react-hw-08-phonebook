@@ -84,9 +84,6 @@ export const getUserDataForRefresh = createAsyncThunk('user/refresh',
             return data
         }
         catch (error) {
-            Notiflix.Notify.failure(
-                'refresh error. Please try again.'
-            );
             return thunkAPI.rejectWithValue(error)
         }
     }
