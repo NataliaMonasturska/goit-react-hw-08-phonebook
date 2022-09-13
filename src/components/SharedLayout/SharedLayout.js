@@ -12,7 +12,7 @@ export const SharedLayout = () => {
       <div className={css.container}>
         <Suspense
           fallback={
-            <div>
+            <div className={css.loaderContainer}>
               <RotatingLines
                 strokeColor="#3f51b5"
                 strokeWidth="5"
