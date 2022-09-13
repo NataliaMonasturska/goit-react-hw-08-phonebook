@@ -39,7 +39,7 @@ const user = createReducer({ name: null, email: null }, {
     [registerUsers.fulfilled]: (_, action) => action.meta.arg,
     [loginUser.fulfilled]: (_, { payload }) => payload.user,
     [logoutUser.fulfilled]: () => ({ name: null, email: null }),
-    [getUserDataForRefresh.fulfilled]: (_, { payload }) => payload,
+    [getUserDataForRefresh.fulfilled]: (_,  { payload }) => payload,
 })
 
 const isLoggedIn = createReducer(false, {

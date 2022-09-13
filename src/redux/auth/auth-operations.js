@@ -14,7 +14,7 @@ const token = {
 // зарегестрировать пользователя
 
 export const registerUsers = createAsyncThunk('user/register',
-    async (userData,  { rejectWithValue } ) => {
+    async (userData, { rejectWithValue }) => {
         try {
             const user = await getUsers(userData);
             token.set(user.token)
@@ -35,7 +35,7 @@ export const registerUsers = createAsyncThunk('user/register',
 
 export const loginUser = createAsyncThunk('user/login',
 
-    async (values,  { rejectWithValue }) => {
+    async (values, { rejectWithValue }) => {
         try {
             const user = await userLogin(values);
             token.set(user.token);
@@ -62,7 +62,7 @@ export const logoutUser = createAsyncThunk('user/Logout',
             return user;
         }
         catch (error) {
-        console.log(error);
+            console.log(error);
         }
     }
 )
@@ -81,19 +81,13 @@ export const getUserDataForRefresh = createAsyncThunk('user/refresh',
         token.set(persistedToken);
         try {
             const data = await getUserData();
-            return data;
-        } 
+            return data
+        }
         catch (error) {
-           console.log(error);
+            Notiflix.Notify.failure(
+                'refresh error. Please try again.'
+            );
+            return thunkAPI.rejectWithValue(error)
         }
     }
 )
-
-
-
-
-// export const getUserData = async () => {
-//     const response = await axios.get(`${API_BASE_URL}/users/current`);
-//     const userData = await response.data;
-//     return userData;
-//   }

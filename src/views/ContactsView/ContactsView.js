@@ -11,7 +11,6 @@ const ContactsView = () => {
     const status = useSelector(state => state.contacts.status);
     const userStatus = useSelector(state => state.auth.status);
     const items = useSelector(state => state.contacts.items);
-    console.log(items);
     const dispatch = useDispatch();
 
     useEffect(() => {

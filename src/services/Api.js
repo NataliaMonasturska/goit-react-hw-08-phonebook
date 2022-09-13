@@ -28,7 +28,6 @@ export const userLogout = async () => {
 export const getUserData = async () => {
   const response = await axios.get(`${API_BASE_URL}/users/current`);
   const userData = await response.data;
-  console.log(userData);
   return userData;
 }
 
